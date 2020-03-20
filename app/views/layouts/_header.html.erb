@@ -1,0 +1,22 @@
+
+<header>
+
+  <div id="header-container">
+    <div>
+      <a href="/" class="btn_anchor">Home</a>
+    </div>
+
+    <div>
+
+      <a href="/new" class="btn_anchor">New thread</a>
+    </div>
+    <% if logged_in? %>
+      <%= link_to "Log out", logout_path, method: :delete, class: "btn_anchor" %>
+    <% else %>
+      <div class="align-right">
+        <a href="/login" class="btn_anchor" >Log in</a>
+        <a href="/signup"  class="btn_anchor">Sign up</a>
+      </div>
+    <% end %>
+  </div>
+</header>

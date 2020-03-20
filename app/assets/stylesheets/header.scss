@@ -1,0 +1,49 @@
+
+$base-color: rgb(26, 145, 218);
+
+
+header {
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    background-color: white;
+    border-bottom:1px solid black;
+}
+#header-container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+}
+
+#header-home {
+    display:inline-block;
+    background-color:white;
+    color: $base-color;
+    font-size:20px;
+}
+
+.btn_anchor {
+    text-decoration: none;
+    display:inline-block;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid  black;
+    color: black;
+}
+
+.btn_anchor:hover {
+    background-color: black;
+    color : white
+} 
+
+
+
+
+@media only screen and (max-width: 500px) {
+    #header-container {
+        display: flex;
+        flex-direction: column; 
+        justify-content: space-between;
+    }
+}

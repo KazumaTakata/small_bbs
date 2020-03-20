@@ -1,0 +1,7 @@
+
+
+  <div>Please enter new thread name.</div>
+  <%= form_with(url: "/", method: "post") do %>
+    <%= text_field_tag(:thread_name) %>
+    <%= submit_tag("create") %>
+  <% end %>
