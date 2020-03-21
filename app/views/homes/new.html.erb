@@ -1,7 +1,8 @@
 
+<%= render 'homes/error_message.html.erb' %>
 
 <div>Please enter new thread name.</div>
-<%= form_with(url: "/", method: "post") do %>
+<%= form_with(url: "/", method: "post" ,  local: true ) do %>
   <div>
     <%= label_tag :name %>
     <%= text_field_tag(:thread_name) %>

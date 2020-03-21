@@ -1,10 +1,22 @@
 class PostsController < ApplicationController
   def create
     if logged_in?
-      PostThread.find(params[:id]).posts.create({ content: params[:content], user_id: session[:user_id]})
+      @post = PostThread.find(params[:id]).posts.create({ content: params[:content], user_id: session[:user_id]})
     else 
-      PostThread.find(params[:id]).posts.create({ content: params[:content]})
+      @post = PostThread.find(params[:id]).posts.create({ content: params[:content]})
+
     end
-    redirect_back(fallback_location: root_path)
+    if @post.persisted?
+      redirect_back(fallback_location: root_path)
+    else 
+      redirect_back(fallback_location: root_path, alert: @post.errors.full_messages)
+    end
+  end  
+
+
+  def show 
   end
+
+
+
 end

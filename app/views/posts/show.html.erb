@@ -1,4 +1,7 @@
 
+<%= render 'posts/error_messages.html.erb' %>
+
+
 <div class="black">
   Category
 </div>
@@ -35,7 +38,7 @@
 </ol>
 <% end %>
 
-<%= form_with(url: "/#{@id}/posts"  , method: "post", local: true ) do %>
+<%= form_with(url: "/#{@id}/posts"  , method: "post", local:true) do %>
   <%= text_field_tag(:content) %>
   <%= submit_tag("create") %>
 <% end %>

@@ -1,0 +1,12 @@
+<% if @thread.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@thread.errors.count, "error") %>.
+    </div>
+    <ul>
+      <% @thread.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

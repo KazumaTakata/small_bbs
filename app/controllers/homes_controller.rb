@@ -11,8 +11,11 @@ class HomesController < ApplicationController
 
   def create 
     @thread = PostThread.new(name:params[:thread_name], cat_sport:params[:cat_sport], cat_economy:params[:cat_economy], cat_music:params[:cat_music], cat_movie:params[:cat_movie], cat_science:params[:cat_science]  )
-    @thread.save
-    redirect_to root_path
+    if @thread.save
+      redirect_to root_path
+    else 
+      render "new"
+    end
   end
 
 
