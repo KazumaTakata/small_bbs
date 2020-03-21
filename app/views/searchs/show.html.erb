@@ -1,0 +1,26 @@
+<h2> SEACH RESULT</h2 >
+<h2>search word is  [<%= params[:search_word] %>]  </h2>
+
+<ol>
+  <% @posts.each do |thread_name, posts| %>
+    <% if  posts.length > 0 %>
+      <h2 class="black">
+        <%= thread_name %>
+      </h2>
+      <% posts.each do |post| %>
+        <li> 
+          <div class="black">
+            <% if post.user_id.nil? %>
+              <%= "NO NAME" %>
+            <% else %>
+              <%= User.find(post.user_id).name %>
+            <% end %>
+          </div>
+          <%= post.content %>
+        </li>
+      <% end %>
+    <%end%>
+  <% end %>
+</ol>
+
+

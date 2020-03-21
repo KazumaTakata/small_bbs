@@ -1,7 +1,37 @@
 
 
-  <div>Please enter new thread name.</div>
-  <%= form_with(url: "/", method: "post") do %>
+<div>Please enter new thread name.</div>
+<%= form_with(url: "/", method: "post") do %>
+  <div>
+    <%= label_tag :name %>
     <%= text_field_tag(:thread_name) %>
-    <%= submit_tag("create") %>
-  <% end %>
+  </div>
+  <div class="black">
+    You can choose multiple categories.
+  </div>
+  <div>
+    <div>
+      <%= label_tag :Sport %>
+      <%= check_box_tag :cat_sport %>
+    </div>
+    <div>
+      <%= label_tag :Economy %>
+      <%= check_box_tag :cat_economy %>
+    </div>
+    <div>
+      <%= label_tag :Music %>
+      <%= check_box_tag :cat_music %>
+    </div>
+    <div>
+      <%= label_tag :Movie %>
+      <%= check_box_tag :cat_movie %>
+    </div>
+    <div>
+      <%= label_tag :Science %>
+      <%= check_box_tag :cat_science %>
+    </div>
+
+  </div>
+  <%= submit_tag("create") %>
+
+<% end %>

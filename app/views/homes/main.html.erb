@@ -1,20 +1,29 @@
 
 
-  <div class="black">
-    <div>
-      Let's explore f*cking interesting threads.
-    </div>
-    <div>
-      Or create a new thread on your own!!!.
-    </div>
+<div class="black">
+  <div>
+    Let's explore f*cking interesting threads.
   </div>
+  <div>
+    Or create a new thread on your own!!!.
+  </div>
+</div>
 
-  <% @threads.each do |thread| %>
-    <div> 
-      <a class="btn_anchor" href=<%="/"+"#{thread.id}"%>>
-        <%= thread.name %>
-      </a>
-    </div>
-  <% end %>
+<% @threads.each do |thread| %>
+  <div> 
+    <a class="btn_anchor" href=<%="/"+"#{thread.id}"%>>
+      <%= thread.name %>
+      <div>
+        <% @categories.each do |cat| %>
+          <% if thread[cat] %>
+            <span class="category">
+              <%=  cat[4..-1]  %>
+            </span>
+          <% end %>
+        <% end%>
+      </div>
+    </a>
+  </div>
+<% end %>
 
 

@@ -24,7 +24,16 @@ body {
 .black {
     background-color: black;
     color:white;
-    padding: 5px
+    padding: 5px;
+    margin: 5px;
+}
+
+.category {
+    background-color: black;
+    color: white;
+    padding: 4px;
+    margin: 1px;
+    font-size: 10px;
 }
 
 

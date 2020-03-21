@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_143731) do
+ActiveRecord::Schema.define(version: 2020_03_21_164927) do
 
   create_table "post_threads", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "cat_sport"
+    t.boolean "cat_economy"
+    t.boolean "cat_music"
+    t.boolean "cat_movie"
+    t.boolean "cat_science"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "post_thread_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["post_thread_id"], name: "index_posts_on_post_thread_id"
   end
 
   create_table "users", force: :cascade do |t|
