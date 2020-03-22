@@ -1,24 +1,33 @@
-# README
+## ログイン機能
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+name:string, email:string, password:string
+を用いてのログイン機能。
+それぞれvalidationを行っている。
+emailの場合は、regexを用いてvalidationを行っている。
 
-Things you may want to cover:
+   
+## 閲覧投稿機能
 
-* Ruby version
+閲覧投稿機能はログインをせずとも可能にしている。
+ログインをしているユーザーは投稿に名前が付与させる。
+ログインしていない場合には、NO NAMEが付与される。
 
-* System dependencies
+##　スレッド機能
 
-* Configuration
+ログインしていなくてもスレッドは作成可能。
 
-* Database creation
 
-* Database initialization
+##　カテゴリー設定
 
-* How to run the test suite
+あらかじめ決められたカテゴリーの中から、複数のカテゴリーを付与することが
+できる。
 
-* Services (job queues, cache servers, search engines, etc.)
+##　検索機能
+sqlのlike queryを用いて実装。
+full text searchはできない。
 
-* Deployment instructions
 
-* ...
+##　validation
+全てのユーザーからのinputに対しvalidationを行っている。
+
+
