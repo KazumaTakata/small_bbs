@@ -40,6 +40,12 @@ full text searchはできない。
 ## validation
 全てのユーザーからのinputに対しvalidationを行っている。
 
+## fallback
+fallbackとして、RecordNotFound Exceptionが投げられた場合、root_pathにredirectされるように
+している。
+また、あらかじめ指定したroute path以外にアクセルした場合もroot_pathにredirectされるように
+している。
+
 
 # QUICK START
 ```
