@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   post  ':id/posts', to: 'posts#create'
   resources :users
 
+  match "*path", to:redirect('/'), via: :all
+
 
 end
