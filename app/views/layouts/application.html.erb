@@ -13,16 +13,22 @@
   <body>
     <%= render 'layouts/header'%>
     <div class="container">
-      <% flash.each do |message_type, message| %>
-        <% if message.kind_of?(Array) %>
-          <% message.each do |m| %>
-          <div class="flash"><%= m %></div>
-        <% end %>     
-      <% else %>
-        <div class="flash"><%= message %></div>
+      <% if !flash.empty? %>
+        <div class="flash">
+          Error messages.
+        </div>
+        <% flash.each do |message_type, message| %>
+          <% if message.kind_of?(Array) %>
+            <% message.each do |m| %>
+              <div class="flash"><%= m %></div>
+            <% end %>     
+          <% else %>
+            <div class="flash"><%= message %></div>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-    <%= yield %>
+      <%= yield %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

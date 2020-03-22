@@ -1,13 +1,13 @@
 <h2> SEACH RESULT</h2 >
-<h2>search word is  [<%= params[:search_word] %>]  </h2>
+<h2>search word is  [<%= params[:search_word] %>].  </h2>
 
-<ol>
-  <% @posts.each do |thread_name, posts| %>
-    <% if  posts.length > 0 %>
-      <h2 class="black">
-        <%= thread_name %>
-      </h2>
-      <% posts.each do |post| %>
+<ul>
+  <% result_flag = false %>
+  <% @threads.each do |thread| %>
+    <% if  thread["posts"].length > 0 %>
+      <% result_flag = true %>
+      <a href= "/<%= thread["id"]%>" class="btn_anchor"> <%= thread["name"] %> </a>
+      <% thread["posts"].each do |post| %>
         <li> 
           <div class="black">
             <% if post.user_id.nil? %>
@@ -16,11 +16,19 @@
               <%= User.find(post.user_id).name %>
             <% end %>
           </div>
-          <%= post.content %>
+          <div class="category">
+            <%=  post.created_at.strftime("%Y-%m-%d-%H:%M") %>
+          </div>
+          <div class="wrapped">
+            <%= post.content %>
+          </div>
         </li>
       <% end %>
     <%end%>
   <% end %>
-</ol>
+  <% if !result_flag %>
+    <h2>There is no hit. Try a different search word.</h2>
+  <% end %>
+</ul>
 
 

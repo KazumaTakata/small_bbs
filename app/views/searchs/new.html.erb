@@ -1,5 +1,7 @@
 
-
+<h2 class="black">
+  Search threads.
+</h2>
 <%= form_with(url: "/search/result", method: "get", local: true) do %>
   <%= text_field_tag(:search_word) %>
   <%= submit_tag("search") %>

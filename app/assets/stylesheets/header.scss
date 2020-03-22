@@ -23,24 +23,8 @@ header {
     font-size:20px;
 }
 
-.btn_anchor {
-    text-decoration: none;
-    display:inline-block;
-    padding: 15px;
-    margin: 10px;
-    border: 1px solid  black;
-    color: black;
-}
 
-.btn_anchor:hover {
-    background-color: black;
-    color : white;
-} 
-
-
-
-
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
     #header-container {
         display: flex;
         flex-direction: column; 

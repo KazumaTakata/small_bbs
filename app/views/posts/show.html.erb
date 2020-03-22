@@ -22,20 +22,23 @@
 <% if @posts.length == 0 %>
   <p>There is no comments. Let's comment!</p>
 <% else %>
-<ol>
-  <% @posts.each do |post| %>
-    <li> 
-      <div class="black">
-        <% if post.user_id.nil? %>
-          <%= "NO NAME" %>
-        <% else %>
-          <%= User.find(post.user_id).name %>
-        <% end %>
-      </div>
-      <%= post.content %>
-    </li>
-  <% end %>
-</ol>
+  <ol>
+    <% @posts.each do |post| %>
+      <li> 
+        <div class="black">
+          <% if post.user_id.nil? %>
+            <%= "NO NAME" %>
+          <% else %>
+            <%= User.find(post.user_id).name %>
+          <% end %>
+        </div>
+        <div>
+          <%=  post.created_at.strftime("%Y-%m-%d-%H:%M") %>
+        </div>
+        <%= post.content %>
+      </li>
+    <% end %>
+  </ol>
 <% end %>
 
 <%= form_with(url: "/#{@id}/posts"  , method: "post", local:true) do %>

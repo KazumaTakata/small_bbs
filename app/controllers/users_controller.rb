@@ -3,8 +3,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = current_user
+  end
+
   def create
-    debugger
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
       log_in @user

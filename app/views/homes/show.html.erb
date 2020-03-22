@@ -1,4 +1,8 @@
 
+<h1>
+  <%=  @thread.name  %>
+</h1>
+
 <div class="black">
   Category
 </div>
@@ -19,25 +23,30 @@
 <% if @posts.length == 0 %>
   <p>There is no comments. Let's comment!</p>
 <% else %>
-<ol>
-  <% @posts.each do |post| %>
-    <li> 
-      <div class="black">
-        <% if post.user_id.nil? %>
-          <%= "NO NAME" %>
-        <% else %>
-          <%= User.find(post.user_id).name %>
-        <% end %>
-      </div>
-      <%= post.content %>
-    </li>
-  <% end %>
-</ol>
+  <ol>
+    <% @posts.each do |post| %>
+      <li> 
+        <div class="black">
+          <% if post.user_id.nil? %>
+            <%= "NO NAME" %>
+          <% else %>
+            <%= User.find(post.user_id).name %>
+          <% end %>
+        </div>
+        <div class="category">
+          <%=  post.created_at.strftime("%Y-%m-%d-%H:%M") %>
+        </div>
+        <div class="wrapped"> 
+          <%= post.content %>
+        </div>
+      </li>
+    <% end %>
+  </ol>
 <% end %>
 
 <%= form_with(url: "/#{@id}/posts"  , method: "post", local: true ) do %>
   <%= text_field_tag(:content) %>
-  <%= submit_tag("create") %>
+  <%= submit_tag("Submit") %>
 <% end %>
 
 
