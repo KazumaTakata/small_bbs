@@ -35,6 +35,7 @@ full text searchはできない。
 ```
 git clone https://github.com/KazumaTakata/small_bbs
 cd small_bbs
+rails db:migrate
 rails s
 ```
 
