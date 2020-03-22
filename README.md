@@ -30,4 +30,11 @@ full text searchはできない。
 ## validation
 全てのユーザーからのinputに対しvalidationを行っている。
 
+# QUICK START
+
+```
+git clone https://github.com/KazumaTakata/small_bbs
+cd small_bbs
+rails s
+```
 
