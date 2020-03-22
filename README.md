@@ -1,3 +1,7 @@
+## 環境 
+ruby 2.4.3p205。
+他の詳細はGemfile。
+
 ## ログイン機能
 
 name:string, email:string, password:string
